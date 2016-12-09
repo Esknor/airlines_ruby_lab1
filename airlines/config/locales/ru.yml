@@ -1,0 +1,10 @@
+ru:
+  hello: "О привет!"
+  description: "Нифига себе решил, лабу доделать?!"
+  home:	"Авиалинии"
+  flights:	"Рейсы"
+  staffs: "Персонал"
+  managing: "Управление"
+  administrating: "Администрирование"
+  sign_in: "Вход"
+  sign_out: "Выход"

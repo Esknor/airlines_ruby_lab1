@@ -1,0 +1,65 @@
+# coding: utf-8
+<!DOCTYPE html>
+<html>
+<head>
+  <title><%= t('home') %></title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<nav class="navbar navbar-inverse navbar-static-top">
+  <div class="container">
+    <div class="navbar-header">
+      <%= link_to t('home'), {:controller => 'welcome', :action => 'index'}, class: 'navbar-brand' %>
+    </div>
+    <div>
+      <ul class="nav navbar-nav">
+        <li><%= link_to t('flights'), {:controller => 'Flights', :action => 'view'} %></li>
+        <% if get_perm == 'manager' || get_perm == 'super' %>
+          <li><%= link_to t('managing'), {:controller => 'managing', :action => 'index'} %></li>
+        <% end %>
+        <% if get_perm == 'administrator' || get_perm == 'super' %>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="/administrating"><%= t('administrating') %>
+          <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/staffs"><%= t('staffs') %></a></li>
+            <li><a href="/flights"><%= t('flights') %></a></li>
+          </ul>
+        </li>
+        <% end %>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <% if signed_in? %>
+          <% if get_perm == 'super' %>
+          <li><%= link_to "SuperAdmin", {:controller => 'users', :action => 'index'} %></li>
+          <% end %>
+        <% end %>
+        <% if signed_in? %>
+          <li><%= link_to t('sign_out'), signout_path, method: "delete" %></li>
+        <% else %>
+          <li><%= link_to t('sign_in'), signin_path %></li>
+        <% end %>
+        <li>
+        <form class="navbar-form" action="." method="get">
+          <% if get_locale.to_s == "en" %>
+            <%= hidden_field_tag(:locale, "ru") %>
+            <input type="submit" value="Ru">
+          <% else %>
+            <%= hidden_field_tag(:locale, "en") %>
+            <input type="submit" value="En">
+          <% end %>
+        </form> 
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<%= yield %>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="list-group">
+                <% @flights.each do |flight| %>
+                    <%= link_to edit_flight_path(flight), class: 'list-group-item' do %>
+                        <div class="container-fluid">
+                            <div class="row">
+                                <div class="col-md-3"><h3><%= flight.num %></h3></div>
+                                <div class="col-md-9"><h3><%= flight.fromFlight %> - <%= flight.toFlight %></h3></div>
+                            </div>
+                        </div>
+                    <% end %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,97 @@
+# coding: utf-8
+<div class="container-fluid">
+	<div class="col-md-6">
+		<h1>Editing Flight</h1>
+		<%= render 'form' %>
+	</div>
+
+	<div class="col-md-6">
+		<h2>Pilots</h2>
+		<% @pilots.each do |pilot| %>
+			<div class="row">
+				<div class="col-md-4">
+					<p><%= pilot.name %></p>
+				</div>
+				<div class="col-md-2">
+					<%= form_tag edit_flight_path(@flight), method: "get" do %>
+						<%= hidden_field_tag('for_delete', pilot.id) %>
+						<input class="btn btn-xs btn-danger" type="submit" value="Delete"/>
+					<% end %>
+				</div>
+			</div>
+		<% end %>
+		<br>
+		<%= form_tag edit_flight_path(@flight), method: "get" do %>
+			<%= select_tag(:add_staff, options_for_select(@rest_pilots)) %>
+			<input class="btn btn-xs btn-default" type="submit" value="Add"/>
+		<% end %>
+
+		<h2>Navigators</h2>
+		<% @navigators.each do |navigator| %>
+			<div class="row">
+			<div class="col-md-4">
+				<p><%= navigator.name %></p>
+			</div>
+			<div class="col-md-2">
+				<%= form_tag edit_flight_path(@flight), method: "get" do %>
+					<%= hidden_field_tag('for_delete', navigator.id) %>
+					<input class="btn btn-xs btn-danger" type="submit" value="Delete"/>
+				<% end %>
+			</div>
+			</div>
+		<% end %>
+		<br>
+		<%= form_tag edit_flight_path(@flight), method: "get" do %>
+			<%= select_tag(:add_staff, options_for_select(@rest_navigators)) %>
+			<input class="btn btn-xs btn-default" type="submit" value="Add"/>
+		<% end %>
+
+		<h2>Operators</h2>
+		<% @operators.each do |operator| %>
+			<div class="row">
+			<div class="col-md-4">
+				<p><%= operator.name %></p>
+			</div>
+			<div class="col-md-2">
+				<%= form_tag edit_flight_path(@flight), method: "get" do %>
+					<%= hidden_field_tag('for_delete', operator.id) %>
+					<input class="btn btn-xs btn-danger" type="submit" value="Delete"/>
+				<% end %>
+			</div>
+			</div>
+		<% end %>
+		<br>
+		<%= form_tag edit_flight_path(@flight), method: "get" do %>
+			<%= select_tag(:add_staff, options_for_select(@rest_operators)) %>
+			<input class="btn btn-xs btn-default" type="submit" value="Add"/>
+		<% end %>
+
+		<h2>Stewardess</h2>
+		<% @stewardess.each do |stewardes| %>
+			<div class="row">
+			<div class="col-md-4">
+				<p><%= stewardes.name %></p>
+			</div>
+			<div class="col-md-2">
+				<%= form_tag edit_flight_path(@flight), method: "get" do %>
+					<%= hidden_field_tag('for_delete', stewardes.id) %>
+					<input class="btn btn-xs btn-danger" type="submit" value="Delete"/>
+				<% end %>
+			</div>
+			</div>
+		<% end %>
+		<br>
+		<%= form_tag edit_flight_path(@flight), method: "get" do %>
+			<%= select_tag(:add_staff, options_for_select(@rest_stewardess)) %>
+			<input class="btn btn-xs btn-default" type="submit" value="Add"/>
+		<% end %>
+	</div>
+</div>
+
+
+
+<br>
+<div class="btn-group">
+	<%= link_to 'Show', @flight, class: "btn btn-default" %>
+	<%= link_to 'Back', flights_path, class: "btn btn-default" %>
+</div>

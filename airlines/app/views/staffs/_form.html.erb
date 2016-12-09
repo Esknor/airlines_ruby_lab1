@@ -1,0 +1,30 @@
+<%= form_for(@staff) do |f| %>
+  <% if @staff.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@staff.errors.count, "error") %> prohibited this staff from being saved:</h2>
+
+      <ul>
+      <% @staff.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="row">
+      <h3>Name</h3>
+      <%= f.text_field :name %>
+    </div>
+    <div class="row">
+      <h3>Profession</h3>
+      <%= f.select :profession, Staff::OPTIONS %>
+    </div>
+    <div class="row">
+      <div class="actions btn">
+        <%= f.submit %>
+      </div>
+    </div>
+  </div>
+
+<% end %>

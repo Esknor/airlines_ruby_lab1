@@ -1,0 +1,42 @@
+# coding: utf-8
+<p id="notice"><%= notice %></p>
+
+<div class="row">
+<div class="col-md-offset-4 col-md-4">
+<div class="table-bordered">
+<table class="table">
+	<tbody>
+		<tr>
+			<td><strong>Flight number</strong></td>
+			<td><%= @flight.num %></td>
+		</tr>
+
+		<tr>
+			<td><strong>From</strong></td>
+		  	<td><%= @flight.fromFlight %></td>
+		</tr>
+
+		<tr>
+		  	<td><strong>To</strong></td>
+		  	<td><%= @flight.toFlight %></td>
+		</tr>
+
+		<tr>
+		  	<td><strong>Status</strong></td>
+		  	<td><%= @flight.status %></td>
+		</tr>
+	</tbody>
+</table>
+</div>
+</div>
+</div>
+
+<br>
+<div class="row">
+<div class="col-md-offset-7 col-md-2">
+<div class="btn-group">
+	<%= link_to 'Edit', edit_flight_path(@flight), class: "btn btn-default" %>
+	<%= link_to 'Back', flights_path, class: "btn btn-default" %>
+</div>
+</div>
+</div>

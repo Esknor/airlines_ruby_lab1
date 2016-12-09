@@ -1,0 +1,25 @@
+# coding: utf-8
+<div class="container">
+<div class="row">
+    <div class="col-md-6 col-md-offset-2">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td><h3>Flight №</h3></td>
+                    <td><h3>From - To</h3></td>
+                </tr>
+            </thead>
+            <tbody>
+                <% @flights.each do |i| %>
+                    <% if i.status %>
+                    <tr>
+                        <td width="30%"><%= i.num %></td>
+                        <td width="70%"><%= i.fromFlight %> - <%= i.toFlight %></td>
+                    </tr>
+                    <% end %>
+                <% end %>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

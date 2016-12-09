@@ -1,0 +1,33 @@
+Для работы с данным приложением необходимо установить Ruby, RoR, MySQL. Для этого я советую воспользоваться сайтом https://gorails.com/setup/ubuntu. В шапке выбрать соответствующую версию ос. Далее следовать всем указаниям.
+
+Для корректной работы приложения нужно выполнить шаги 1-17. Каждую команду, кроме 16 необходимо завершить нажатием Enter.
+Для выполнения всех шагов использовать терминал. Для этого в Linux нажать комбинацию: Cntrl+Alt+T.
+Далее необходимо перейти в папку с приложением.
+Если приложение не перемещали дополнительно для это достаточно ввести команду:
+cd Downloads/lab3_airlines/
+
+1. 	bundle update
+2. 	bundle install
+3. 	mysql -u root -p
+4. 	CREATE DATABASE airlines_development;
+5. 	USE airlines_development;
+6.	GRANT ALL PRIVILEGES ON airlines_development.* TO 'airlines'@'localhost' IDENTIFIED BY 'password';
+7.	exit;
+8.	rake db:migrate
+9.	rails s
+*.	Создаём новых пользователей используя веб интерфейс, желательно давать соответствующие имена администраторам и менеджерам, чтобы проще было заполнить бд. Я рекомендую создать пользователей с именами "admin", "manager", "user", "super".
+10.	mysql -u airlines -p
+11.	password
+12.	USE airlines_development;
+13.	UPDATE users SET permission = 'super' WHERE name LIKE 'super';
+14.	UPDATE users SET permission = 'admin' WHERE name LIKE 'administrator';
+15.	UPDATE users SET permission = 'manager' WHERE name LIKE 'manager';
+16. Cntrl+C
+17. rails s
+
+Этот список команд выполняется одноразово!
+Для последующего запуска или остановки приложения достаточно В ПАПКЕ С ПРИЛОЖЕНИЕМ вводить команду 17 для запуска приложения и команду 16 для его остановки.
+
+P.S. про возникновении каких-либо ошибок на любом этапе установки воспользоваться Google для поиска решения, обычно первая же ссылка на StackOverflow помогает решить проблему.
+bin/rake db:migrate RAILS_ENV=development
+Удали енам

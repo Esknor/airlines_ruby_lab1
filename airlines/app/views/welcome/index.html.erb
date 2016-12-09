@@ -1,0 +1,11 @@
+<div class="container">
+    <div class="row">
+        <div class="col-sm-6">
+            <h1><%= t('hello') %></h1>
+            <p><%= t('description') %></p>
+            <p>
+              <%= link_to "#{t('flights')} >>", {:controller => 'Flights', :action => 'view'}, class: "btn btn-lg btn-primary" %>
+            </p>
+        </div>
+    </div>
+</div>

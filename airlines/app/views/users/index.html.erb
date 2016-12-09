@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Users</h1>
+
+<div class="col-sm-offset-2 col-sm-8">
+<div class='table'>
+  <table class='table'>
+    <thead>
+      <tr>
+        <th width="30%"><h2>Name</h2></th>
+        <th width="30%"><h2>Email</h2></th>
+        <td width="20%"><h2>Permission</h2></td>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @users.each do |user| %>
+        <tr>
+          <td width="30%"><%= user.name %></td>
+          <td width="30%"><%= user.email %></td>
+          <td width="20%"><%= user.permission %></td>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

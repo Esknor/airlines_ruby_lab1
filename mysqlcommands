@@ -1,0 +1,19 @@
+mysql -u root -p
+CREATE DATABASE airlines_development;
+USE airlines_development;
+GRANT ALL PRIVILEGES ON airlines_development.* TO 'airlines'@'localhost' IDENTIFIED BY 'password';
+exit;
+ALTER DATABASE airlines_development CHARACTER SET utf8 COLLATE utf8_general_ci;
+rake db:migrate
+mysql -u airlines -p
+password
+USE airlines_development;
+UPDATE users SET permission = 'super' WHERE name LIKE 'super';
+UPDATE users SET permission = 'admin' WHERE name LIKE 'administrator';
+UPDATE users SET permission = 'manager' WHERE name LIKE 'manager';
+show tables;
+select * from staffs;
+describe flights;
+select * from flights where id = 1 ;
+select name,profession = 'pilot'  from staffs;
+https://www.pantz.org/software/mysql/mysqlcommands.html

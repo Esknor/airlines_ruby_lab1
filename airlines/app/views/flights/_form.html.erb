@@ -1,0 +1,41 @@
+# encoding: utf-8
+<%= form_for(@flight) do |f| %>
+  <% if @flight.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@flight.errors.count, "error") %> prohibited this flight from being saved:</h2>
+
+      <ul>
+      <% @flight.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="container">
+    <div class="row">
+        <h3>Flight number</h3>
+        <%= f.text_field :num %>
+    </div>
+    <div class="row">
+        <h3>From</h3>
+        <%= f.text_field :fromFlight %>
+    </div>
+    <div class="row">
+        <h3>To</h3>
+        <%= f.text_field :toFlight %>
+    </div>
+    <% if get_perm == 'super' or get_perm == 'administrator' %>
+    <div class="row">
+        <h3>Status</h3>
+        <%= f.check_box :status %>
+    </div>
+    <% end %>
+    <div class="row">
+        <div class="actions">
+          <%= f.submit %>
+        </div>
+    </div>
+  </div>
+
+<% end %>
